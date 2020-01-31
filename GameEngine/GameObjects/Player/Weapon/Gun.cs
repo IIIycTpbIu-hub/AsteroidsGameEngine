@@ -17,7 +17,7 @@ namespace GameEngine.GameObjects.Player.Weapon
         public bool IsReadyToFire { get; set; }
         public int AvaibleLaserShots { get; private set; }
 
-        public event EventHandler<int> LaserRecharged;
+        public event EventHandler<int> LaserValueChanged;
 
         public Gun(Player player, Point2D[] bulletPoints, int bulletLifeTime, Point2D[] laserPoints, int laserLifeTime, int maxLaserBullets, int laserRecoverTime)
         {
@@ -62,7 +62,7 @@ namespace GameEngine.GameObjects.Player.Weapon
                 laser.Rotate(_player.Rotation);
                 IsReadyToFire = false;
                 AvaibleLaserShots--;
-
+                LaserValueChanged?.Invoke(this, AvaibleLaserShots);
                 return laser;
             }
 
@@ -81,7 +81,7 @@ namespace GameEngine.GameObjects.Player.Weapon
                 {
                     _time = 0;
                     AvaibleLaserShots++;
-                    LaserRecharged?.Invoke(this, AvaibleLaserShots);
+                    LaserValueChanged?.Invoke(this, AvaibleLaserShots);
                 }
             }
         }

@@ -24,7 +24,7 @@ namespace GameEngine.EnemyControll
 
         public Player Player;
 
-        public event EventHandler<GameObject> Collision;
+        public event EventHandler<GameObject> GameOver;
         public event EventHandler<GameObject> CreateGameObject;
         public event EventHandler<GameObject> EnemyDestroyed;
 
@@ -209,7 +209,8 @@ namespace GameEngine.EnemyControll
                     bool collision = enemy.Collider.IsCollision(Player.Collider);
                     if (collision)
                     {
-                        Collision?.Invoke(enemy, Player);
+                        GameOver?.Invoke(enemy, Player);
+                        Player.OnDestroy();
                         break;
                     }
                 }

@@ -2,3 +2,4 @@ D:\Progects\GameEngine\GameEngine\bin\Debug\GameEngine.dll
 D:\Progects\GameEngine\GameEngine\bin\Debug\GameEngine.pdb
 D:\Progects\GameEngine\GameEngine\obj\Debug\GameEngine.dll
 D:\Progects\GameEngine\GameEngine\obj\Debug\GameEngine.pdb
+D:\Progects\GameEngine\GameEngine\obj\Debug\GameEngine.csprojAssemblyReference.cache
