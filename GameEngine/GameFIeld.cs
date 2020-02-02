@@ -24,6 +24,23 @@ namespace GameEngine.EnemyControll
 
         public Player Player;
 
+        public float Width { get; set; }
+
+        public float Height { get; set; }
+
+        public float Padding
+        {
+            get { return _padding; }
+            set
+            {
+                if (value >= 0)
+                {
+                    _padding = value;
+                }
+            }
+        }
+
+
         public event EventHandler<GameObject> GameOver;
         public event EventHandler<GameObject> CreateGameObject;
         public event EventHandler<GameObject> EnemyDestroyed;
@@ -46,25 +63,9 @@ namespace GameEngine.EnemyControll
             _rnd = new Random();
         }
 
-        public float Width { get; private set; }
-
-        public float Height { get; private set; }
-
-        public float Padding
+        public Player CreatePlayer(Point2D[] points, Point2D creationPoint, Point2D[] bulletPoints, int bulletLifeTime, Point2D[] laserPoints, int maxLaserBullets, int laserLifeTime)
         {
-            get { return _padding; }
-            set
-            {
-                if (value >= 0)
-                {
-                    _padding = value;
-                }
-            }
-        }
-
-        public Player CreatePlayer(Point2D[] points, Point2D creationPoint, Point2D[] bulletPoints, int bulletLifeTime, Point2D[] laserPoints, int laserLifeTime)
-        {
-            Player = new Player(points, creationPoint, bulletPoints, bulletLifeTime, laserPoints, laserLifeTime, 4, 500);
+            Player = new Player(points, creationPoint, bulletPoints, bulletLifeTime, laserPoints, laserLifeTime, maxLaserBullets, 500);
             Player.Destroy += OnDestroy;
             Player.Fire += AddBullet;
             CreateGameObject?.Invoke(this, Player);
