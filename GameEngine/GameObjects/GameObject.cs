@@ -20,7 +20,7 @@ namespace GameEngine.GameObjects
             get { return GameEnginePolygon.AngleRotate; }
             set
             {
-                GameEnginePolygon.RotatePolygon(value);
+                GameEnginePolygon.RotatePolygon(value - GameEnginePolygon.AngleRotate);
             }
         }
 
@@ -51,7 +51,7 @@ namespace GameEngine.GameObjects
 
         public void Rotate(float angle)
         {
-            Rotation = angle;
+            Rotation += angle;
         }
 
         protected internal virtual void Move(Point2D vector)
