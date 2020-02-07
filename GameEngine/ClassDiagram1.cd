@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameEngine.Primitives.Axes2D">
+    <Position X="27.5" Y="5.75" Width="2.25" />
+    <AssociationLine Name="Point2D" Type="GameEngine.Primitives.Point2D" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="29.75" Y="7.188" />
+        <Point X="30.125" Y="7.188" />
+        <Point X="30.125" Y="5.812" />
+        <Point X="31" Y="5.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAQQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>Primitives\Axes2D.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Point2D" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameEngine.Primitives.Collider">
+    <Position X="27.5" Y="1.75" Width="2.75" />
+    <AssociationLine Name="GameEnginePolygon" Type="GameEngine.Primitives.GameEnginePolygon" ManuallyRouted="true">
+      <Path>
+        <Point X="28.875" Y="1.75" />
+        <Point X="28.875" Y="1.375" />
+        <Point X="32.312" Y="1.375" />
+        <Point X="32.312" Y="1.75" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.072" Y="0.073" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>CIAEAQAAAAAAhAAAQAAAAAAQAAAAAAAAAgQAAAAAAAA=</HashCode>
+      <FileName>Primitives\Collider.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GameEnginePolygon" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameEngine.Primitives.GameEnginePolygon">
+    <Position X="31.25" Y="1.75" Width="2.25" />
+    <AssociationLine Name="Point2D" Type="GameEngine.Primitives.Point2D" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="31.25" Y="2.625" />
+        <Point X="30.625" Y="2.625" />
+        <Point X="30.625" Y="5.562" />
+        <Point X="31" Y="5.562" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAIAAgCgAgAAAAAAAAAAAAAAAAAgAAEAAAAAAA=</HashCode>
+      <FileName>Primitives\GameEnginePolygon.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Point2D" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameEngine.GameObjects.Enemies.Asteroid">
+    <Position X="24.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Enemies\Asteroid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.GameObjects.Enemies.Enemy">
+    <Position X="22.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Enemies\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.GameObjects.Enemies.SmallAsteroid">
+    <Position X="24.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Enemies\SmallAsteroid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.GameObjects.Enemies.UFO">
+    <Position X="21.25" Y="8.25" Width="1.5" />
+    <AssociationLine Name="Player" Type="GameEngine.GameObjects.Player.Player" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="21.625" Y="8.25" />
+        <Point X="21.625" Y="7.875" />
+        <Point X="20.125" Y="7.875" />
+        <Point X="20.125" Y="5.809" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAACAAAACAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>GameObjects\Enemies\UFO.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Player" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameEngine.GameObjects.GameObject">
+    <Position X="21" Y="1.75" Width="3.25" />
+    <AssociationLine Name="Collider1" Type="GameEngine.Primitives.Collider" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.25" Y="2.812" />
+        <Point X="24.625" Y="2.812" />
+        <Point X="24.625" Y="2.062" />
+        <Point X="27.167" Y="2.062" Type="JumpStart" />
+        <Point X="27.333" Y="2.062" Type="JumpEnd" />
+        <Point X="27.5" Y="2.062" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="GameEnginePolygon1" Type="GameEngine.Primitives.GameEnginePolygon" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="24.25" Y="3" />
+        <Point X="27.25" Y="3" />
+        <Point X="27.25" Y="1.5" />
+        <Point X="28.792" Y="1.5" Type="JumpStart" />
+        <Point X="28.958" Y="1.5" Type="JumpEnd" />
+        <Point X="32.229" Y="1.5" Type="JumpStart" />
+        <Point X="32.396" Y="1.5" Type="JumpEnd" />
+        <Point X="32.875" Y="1.5" />
+        <Point X="32.875" Y="1.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>gIAFAAAAAIAAAIAAAAAAAAABEABAAAAQBAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\GameObject.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Collider1" />
+      <Property Name="GameEnginePolygon1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameEngine.GameObjects.Player.Acceleration.Acceleration">
+    <Position X="13.5" Y="4.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAEAAAAAAAAAABAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>GameObjects\Player\Acceleration\Acceleration.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AccelerationsController" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameEngine.GameObjects.Player.Acceleration.AccelerationsController">
+    <Position X="13.5" Y="1.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>IAQAAAAAgAAAAAAAAAAAAACACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Player\Acceleration\AccelerationsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.GameObjects.Player.Player">
+    <Position X="17" Y="1.75" Width="3.25" />
+    <AssociationLine Name="Gun1" Type="GameEngine.GameObjects.Player.Weapon.Gun" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17" Y="3.062" />
+        <Point X="16.656" Y="3.062" />
+        <Point X="16.656" Y="6.75" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AEQAAAAAAACAAEAAABAAAAABEIEFAAAAAAAAIABAAIA=</HashCode>
+      <FileName>GameObjects\Player\Player.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="AccelerationsController" />
+      <Property Name="Gun1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameEngine.GameObjects.Player.Weapon.Ammunition">
+    <Position X="12.25" Y="6.75" Width="2.75" />
+    <InheritanceLine Type="GameEngine.GameObjects.GameObject" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="22.875" Y="1.75" />
+        <Point X="22.875" Y="1.35" />
+        <Point X="12.923" Y="1.35" />
+        <Point X="12.923" Y="6.162" />
+        <Point X="12.938" Y="6.162" />
+        <Point X="12.938" Y="6.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AARAAABAAIAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Player\Weapon\Ammunition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.GameObjects.Player.Weapon.Bullet">
+    <Position X="11.25" Y="10" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Player\Weapon\Bullet.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.GameObjects.Player.Weapon.Gun">
+    <Position X="16.25" Y="6.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAASAAAACggAAAAAAACAIMYIAAAAIAAgAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Player\Weapon\Gun.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Ammunition" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameEngine.GameObjects.Player.Weapon.Laser">
+    <Position X="13.75" Y="10" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAACAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObjects\Player\Weapon\Laser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameEngine.EnemyControll.GameField">
+    <Position X="5.75" Y="2.25" Width="4" />
+    <AssociationLine Name="Asteroid" Type="GameEngine.GameObjects.Enemies.Asteroid" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="9.75" Y="7.56" />
+        <Point X="10.819" Y="7.56" />
+        <Point X="10.819" Y="12.755" />
+        <Point X="23.539" Y="12.755" />
+        <Point X="23.539" Y="8.5" />
+        <Point X="24.5" Y="8.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="SmallAsteroid" Type="GameEngine.GameObjects.Enemies.SmallAsteroid" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="10.285" />
+        <Point X="7.75" Y="12.748" />
+        <Point X="24.125" Y="12.748" />
+        <Point X="24.125" Y="10.866" />
+        <Point X="24.5" Y="10.866" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>QAQBhQEABwAAAAAEgAAokEgAAAAEiUDBAAoAgUAAAEg=</HashCode>
+      <FileName>GameField.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="EnemyController" />
+      <Property Name="Player1" />
+      <Property Name="UFO" />
+      <Property Name="Asteroid" />
+      <Property Name="SmallAsteroid" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameEngine.EnemyControll.EnemyController">
+    <Position X="1" Y="2.25" Width="3" />
+    <NestedTypes>
+      <Enum Name="GameEngine.EnemyControll.EnemyController.EnemyType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>EnemyControll\EnemyController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AIQAAAEEEgAAAAAAgAAAAEAAAAAAAAgABAABgAAAAAg=</HashCode>
+      <FileName>EnemyControll\EnemyController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="EnemyItem" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameEngine.EnemyControll.EnemyItem">
+    <Position X="1.5" Y="7.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EnemyControll\EnemyItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="GameEngine.Primitives.Point2D">
+    <Position X="31" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAEYAUAAAAIAAAAAABAAAAAAAAAYAA=</HashCode>
+      <FileName>Primitives\Point2D.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
