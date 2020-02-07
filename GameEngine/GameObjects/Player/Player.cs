@@ -14,7 +14,7 @@ namespace GameEngine.GameObjects.Player
         
         public readonly Gun Gun;
 
-        public event EventHandler<GameObject> Fire;
+        public event EventHandler<Ammunition> Fire;
 
         public Player(Point2D[] points, Point2D creationPoint, Point2D[] bulletPoints, int bulletLifeTime,
             Point2D[] laserPoints, int laserLifeTime, int maxLaserBullets,
@@ -45,14 +45,14 @@ namespace GameEngine.GameObjects.Player
 
         public void FireWithBullet(float speed, float padding)
         {
-            GameObject shot = Gun.FireWithBullet(speed, padding);
-            Fire?.Invoke(this, shot);
+            Ammunition bullet = Gun.FireWithBullet(speed, padding);
+            Fire?.Invoke(this, bullet);
         }
 
         public void FireWithLaser(float padding)
         {
-            GameObject shot = Gun.FireWithLaser(padding);
-            Fire?.Invoke(this, shot);
+            Ammunition bullet = Gun.FireWithLaser(padding);
+            Fire?.Invoke(this, bullet);
         }
 
         public void SetOnReadyToFire()

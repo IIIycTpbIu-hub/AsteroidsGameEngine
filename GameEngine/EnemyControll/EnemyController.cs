@@ -63,7 +63,7 @@ namespace GameEngine.EnemyControll
             {
                 EnemiesCount--;
 
-                if (t == typeof(Asteroid))
+                if (gameObject is Asteroid)
                 {
                     int smallAsteroids = _rnd.Next(2, 4);
                     for (int i = 0; i < smallAsteroids; i++)

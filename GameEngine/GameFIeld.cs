@@ -123,30 +123,37 @@ namespace GameEngine.EnemyControll
             }
         }
 
-        public void AddBullet(object sender, GameObject gameObject)
+        public void AddBullet(object sender, Ammunition bullet)
         {
-            if (gameObject is Ammunition)
-            {
-                gameObject.Destroy += OnDestroy;
-                _bullets.Add(gameObject as Ammunition);
-                CreateGameObject?.Invoke(this, gameObject);
-            }
+            bullet.Destroy += OnDestroy;
+            _bullets.Add(bullet);
+            CreateGameObject?.Invoke(this, bullet);
         }
 
         public void OnDestroy(object sender, GameObject gameObject)
         {
-            Type t = gameObject.GetType();
-
-            if (t == typeof(Player))
+            switch (gameObject)
             {
-                Player = null;
-            }
+                case Player g:
+                    Player.Fire -= AddBullet;
+                    _enemyController.CreateEnemy -= OnCreateEnemy;
+                    
+                    foreach (var enemy in _enemies)
+                    {
+                        enemy.OnDestroy();
+                    }
 
-            if (gameObject is Enemy)
-            {
-                EnemyDestroyed?.Invoke(this, gameObject);
-            }
+                    foreach (var bullet in _bullets)
+                    {
+                        bullet.OnDestroy();
+                    }
+                    break;
 
+                case Enemy g:
+                    EnemyDestroyed?.Invoke(this, gameObject);
+                    break;
+            }
+            gameObject.Destroy -= OnDestroy;
             _removingObjects.Add(gameObject);
         }
 
@@ -203,7 +210,7 @@ namespace GameEngine.EnemyControll
 
         private void CheckCollisions()
         {
-            if (_enemies != null && _enemies.Count > 0 && Player != null)
+            if (Player != null)
             {
                 foreach (var enemy in _enemies)
                 {
@@ -217,22 +224,19 @@ namespace GameEngine.EnemyControll
                 }
             }
 
-            if (_bullets?.Count > 0 && _enemies?.Count > 0)
+            foreach (var bullet in _bullets)
             {
-                foreach (var bullet in _bullets)
+                foreach (var enemy in _enemies)
                 {
-                    foreach (var enemy in _enemies)
+                    bool collision = bullet.Collider.IsCollision(enemy.Collider);
+                    if (collision)
                     {
-                        bool collision = bullet.Collider.IsCollision(enemy.Collider);
-                        if (collision)
+                        if (bullet.GetType() == typeof(Bullet))
                         {
-                            if (bullet.GetType() == typeof(Bullet))
-                            {
-                                bullet.OnDestroy();
-                            }
-                            enemy.OnDestroy();
-                            return;
+                            bullet.OnDestroy();
                         }
+                        enemy.OnDestroy();
+                        return;
                     }
                 }
             }
@@ -240,44 +244,35 @@ namespace GameEngine.EnemyControll
 
         private void MoveEnemies()
         {
-            if (_enemies?.Count > 0)
+            foreach (var enemy in _enemies)
             {
-                foreach (var enemy in _enemies)
-                {
-                    enemy.Move();
-                }
+                enemy.Move();
             }
         }
 
         private void MoveBullets()
         {
-            if (_bullets?.Count > 0)
+            foreach (var bullet in _bullets)
             {
-                foreach (var bullet in _bullets)
-                {
-                    bullet.Update();
-                }
+                bullet.Update();
             }
         }
 
         private void CheckRemoving()
         {
-            if (_removingObjects?.Count > 0)
+            foreach (var gameObject in _removingObjects)
             {
-                foreach (var gameObject in _removingObjects)
+                if (gameObject is Ammunition)
                 {
-                    if (gameObject is Ammunition)
-                    {
-                        _bullets.Remove(gameObject as Ammunition);
-                    }
-
-                    if (gameObject is Enemy)
-                    {
-                        _enemies.Remove(gameObject as Enemy);
-                    }
+                    _bullets.Remove(gameObject as Ammunition);
                 }
-                _removingObjects.Clear();
+
+                if (gameObject is Enemy)
+                {
+                    _enemies.Remove(gameObject as Enemy);
+                }
             }
+            _removingObjects.Clear();
         }
 
         private Point2D CreateRandomOffScreenPoint()
