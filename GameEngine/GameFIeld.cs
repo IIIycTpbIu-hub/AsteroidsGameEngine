@@ -191,20 +191,13 @@ namespace GameEngine.EnemyControll
                 CheckObjectsPosition(Player);
             }
 
-            if (_enemies?.Count > 0)
+            foreach (var enemy in _enemies)
             {
-                foreach (var enemy in _enemies)
-                {
-                    CheckObjectsPosition(enemy);
-                }
+                CheckObjectsPosition(enemy);
             }
-
-            if (_bullets?.Count > 0)
+            foreach (var bullet in _bullets)
             {
-                foreach (var bullet in _bullets)
-                {
-                    CheckObjectsPosition(bullet);
-                }
+                CheckObjectsPosition(bullet);
             }
         }
 
